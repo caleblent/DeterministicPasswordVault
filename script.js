@@ -1,25 +1,62 @@
 const seedPhrase = 'seed phrase words';
-const youtubeEl = document.getElementById('youtube');
+// const youtubeEl = document.getElementById('youtube');
+const rowsListEl = document.getElementsByClassName('row');
 
-//  IIFE:
+// Add button event listeners to all rows
+function addEventListeners(rowsList) {
+    for (let i = 0; i < rowsList.length; i++) {
+        addButtonsFunctionality(rowsList[i]);
+    }
+}
+
+// Add number entry, calculate button, and copy button event listeners to one specific row
+function addButtonsFunctionality(row) {
+    row.querySelector('.number-entry').addEventListener('click', () => {
+        calculatePassword(row);
+    });
+    row.querySelector('.calculate').addEventListener('click', () => {
+        calculatePassword(row);
+    });
+    row.querySelector('.copy').addEventListener('click', () => {
+        const textarea = document.createElement('textarea');
+        const password = row.querySelector('.password-result').innerText;
+        if (!password) {
+            return;
+        }
+        textarea.value = password;
+        document.body.appendChild(textarea);
+        textarea.select();
+        document.execCommand('copy');
+        textarea.remove();
+    });
+}
+
+// Calculates all the passwords for each row at the launching of the application
+function calculateAllPasswords(rowsList) {
+    for (let i = 0; i < rowsList.length; i++) {
+        calculatePassword(rowsList[i]);
+    }
+}
+
 //  Function that adds event listeners to YouTube row elements,
 //  which enables the password to be calculated if interacted with
-(function addYouTubeEventListeners() {
+function calculatePassword(parentRowEl) {
     // 1) bring in the YouTube row elements
-    const siteNameEl = youtubeEl.querySelector('.site'); // probably don't need this
+    const siteNameEl = parentRowEl.querySelector('.site');
 
-    const passwordResultEl = youtubeEl.querySelector('.password-result');
+    const passwordResultEl = parentRowEl.querySelector('.password-result');
 
-    const numberEl = youtubeEl.querySelector('.number-entry');
+    const numberEl = parentRowEl.querySelector('.number-entry');
 
-    const uppercaseEl = youtubeEl.querySelector('.upper-checkbox');
-    const lowercaseEl = youtubeEl.querySelector('.lower-checkbox');
-    const numbersEl = youtubeEl.querySelector('.nums-checkbox');
-    const dollarSignEl = youtubeEl.querySelector('.dollar-sign-checkbox');
-    const atSignEl = youtubeEl.querySelector('.at-sign-checkbox');
-    const exclamationPointEl = youtubeEl.querySelector(
-        '.exclamation-point-checkbox'
-    );
+    // As of right now, these are unused. I may find a way to include them in the future
+    // const uppercaseEl = parentRowEl.querySelector('.upper-checkbox');
+    // const lowercaseEl = parentRowEl.querySelector('.lower-checkbox');
+    // const numbersEl = parentRowEl.querySelector('.nums-checkbox');
+    // const dollarSignEl = parentRowEl.querySelector('.dollar-sign-checkbox');
+    // const atSignEl = parentRowEl.querySelector('.at-sign-checkbox');
+    // const exclamationPointEl = parentRowEl.querySelector(
+    //     '.exclamation-point-checkbox'
+    // );
 
     // 2) get the phrase to be hashed
     const phraseToHash =
@@ -28,69 +65,13 @@ const youtubeEl = document.getElementById('youtube');
     console.log(phraseToHash);
 
     // 3) hash the phrase (using keccak256?)
-    const hashedValue = keccak256(phraseToHash).toString('hex');
+    const hashedValue = keccak256(phraseToHash).toString('base64');
 
     console.log(hashedValue);
 
-    // 4) gather  the characters the user selected
-    let charString = '';
-    if (numbersEl.checked) {
-        charString += '0123456789'; // 10
-    }
-    if (lowercaseEl.checked && uppercaseEl.checked) {
-        charString += 'ABCDEFGHIJKLMnopqrstuvwxyz'; // 26
-    } else if (lowercaseEl.checked) {
-        charString += 'abcdefghijlkmnopqrstuvwxyz'; // 26
-    } else if (uppercaseEl.checked) {
-        charString += 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'; // 26
-    }
-    if (dollarSignEl.checked) {
-        charString += '$'; // 1
-    }
-    if (atSignEl.checked) {
-        charString += '@'; // 1
-    }
-    if (exclamationPointEl.checked) {
-        charString += '!'; // 1
-    }
-    console.log(charString); // out of 39 total
-
-    // 5) convert the hashed value to
-    let testValue = 'f3234adc234b334a';
-    console.log('value to use instead for test: ', testValue);
-    let convertedString = convertBase(
-        testValue,
-        16,
-        charString.length,
-        charString
-    );
-    console.log(convertedString);
-
-    // 6) set the password to this value
-    passwordResultEl.innerText = convertedString;
-})();
-
-function convertBase(value, from_base, to_base, base_numerals) {
-    var range = base_numerals.split('');
-    var from_range = range.slice(0, from_base);
-    var to_range = range.slice(0, to_base);
-
-    var dec_value = value
-        .split('')
-        .reverse()
-        .reduce(function (carry, digit, index) {
-            if (from_range.indexOf(digit) === -1)
-                throw new Error(
-                    'Invalid digit `' + digit + '` for base ' + from_base + '.'
-                );
-            return (carry +=
-                from_range.indexOf(digit) * Math.pow(from_base, index));
-        }, 0);
-
-    var new_value = '';
-    while (dec_value > 0) {
-        new_value = to_range[dec_value % to_base] + new_value;
-        dec_value = (dec_value - (dec_value % to_base)) / to_base;
-    }
-    return new_value || '0';
+    // 4) set the password to this value
+    passwordResultEl.innerText = hashedValue.slice(0, hashedValue.length - 1);
 }
+
+addEventListeners(rowsListEl);
+calculateAllPasswords(rowsListEl);

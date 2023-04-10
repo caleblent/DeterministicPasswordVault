@@ -12,28 +12,6 @@
         <title>Deterministic Password Generator</title>
     </head>
     <body>
-        <!-- <div class="grid-container">
-            <div class="">Site</div>
-            <div class="">Password</div>
-            <div class="">Number</div>
-            <div class="">Upper</div>
-            <div class="">Lower</div>
-            <div class="">Nums</div>
-            <div class="">$</div>
-            <div class="">@</div>
-            <div class="">!</div>
-
-            <div class="">YouTube</div>
-            <div class="">Password</div>
-            <div class="">- 3 +</div>
-            <div class="">Upper</div>
-            <div class="">Lower</div>
-            <div class="">Nums</div>
-            <div class="">$</div>
-            <div class="">@</div>
-            <div class="">!</div>
-        </div> -->
-
         <div id="spacer"></div>
 
         <div class="flexbox-container">
@@ -54,7 +32,7 @@
             <div id="youtube" class="row">
                 <div class="site">YouTube</div>
                 <div class="password">
-                    <span class="password-result"> ""</span>
+                    <span class="password-result" disabled>null</span>
                 </div>
                 <div class="number">
                     <input
@@ -65,7 +43,14 @@
                         value="3"
                     />
                 </div>
-                <div class="upper">
+                <div class="copy">
+                    <i class="far fa-clipboard"></i>
+                </div>
+                <div class="calculate">
+                    <span class="calculate-button">Calculate</span>
+                </div>
+                <!-- eventually I would like the ability to add these below checkbox options -->
+                <!-- <div class="upper">
                     <input type="checkbox" class="upper-checkbox" checked />
                 </div>
                 <div class="lower">
@@ -90,8 +75,56 @@
                         class="exclamation-point-checkbox"
                         checked
                     />
+                </div> -->
+            </div>
+
+            <!-- YouTube2 -->
+            <div id="youtube2" class="row">
+                <div class="site">YouTube2</div>
+                <div class="password">
+                    <span class="password-result" disabled>null</span>
+                </div>
+                <div class="number">
+                    <input
+                        type="number"
+                        class="number-entry"
+                        min="0"
+                        max="20"
+                        value="6"
+                    />
+                </div>
+                <div class="copy">
+                    <i class="far fa-clipboard"></i>
+                </div>
+                <div class="calculate">
+                    <span class="calculate-button">Calculate</span>
                 </div>
             </div>
+
+            <!-- YouTube3 -->
+            <div id="youtube3" class="row">
+                <div class="site">YouTube3</div>
+                <div class="password">
+                    <span class="password-result" disabled>null</span>
+                </div>
+                <div class="number">
+                    <input
+                        type="number"
+                        class="number-entry"
+                        min="0"
+                        max="20"
+                        value="9"
+                    />
+                </div>
+                <div class="copy">
+                    <i class="far fa-clipboard"></i>
+                </div>
+                <div class="calculate">
+                    <span class="calculate-button">Calculate</span>
+                </div>
+            </div>
+
+            <!--  -->
         </div>
 
         <!-- <div class="container">

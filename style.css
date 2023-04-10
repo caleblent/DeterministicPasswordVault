@@ -7,18 +7,18 @@ body {
     overflow-x: scroll;
 }
 
-.grid-container {
-    display: grid;
+/* .grid-container { */
+/* display: grid;
     grid-template-columns: 6fr 10fr 4fr repeat(6, 1fr);
     max-width: 1000px;
-    margin: 0 auto;
-    /* justify-content: center; */
-    grid-auto-rows: 80px;
-    grid-template-rows: 50px; /* for the first row, which has labels */
+    margin: 0 auto; */
+/* justify-content: center; */
+/* grid-auto-rows: 80px;
+    grid-template-rows: 50px; for the first row, which has labels
     grid-row-gap: 20px;
-    grid-column-gap: 10px;
-    /* height: 100vh; */
-}
+    grid-column-gap: 10px; */
+/* height: 100vh; */
+/* } */
 
 .flexbox-container {
     display: flex;
@@ -28,7 +28,8 @@ body {
 }
 .row {
     display: grid;
-    grid-template-columns: 6fr 10fr 4fr repeat(6, minmax(0, 1fr));
+    grid-template-columns: 1fr 4fr 1fr 1fr 1fr;
+    /* grid-template-columns: 6fr 10fr 4fr repeat(6, 1fr); this will be used if the checkboxes come back*/
     /* margin: 10px auto; */
     max-width: 1200px;
     grid-auto-rows: 60px;
@@ -37,7 +38,7 @@ body {
     align-items: center;
     justify-content: center;
     text-align: center;
-    min-width: 1100px;
+    min-width: 900px;
 }
 
 #labels {
@@ -47,17 +48,19 @@ body {
 
 .row .site,
 .row .password,
-.row .number {
+.row .number,
+.row .copy {
     background-color: #ebd;
     border: 1px solid #000;
 }
 
-.row .upper,
+/* .row .upper,
 .row .lower,
 .row .nums,
 .row .dollar-sign,
 .row .at-sign,
-.row .exclamation-point {
+.row .exclamation-point, */
+.row .calculate {
     background-color: rgb(67, 235, 179);
     border: 1px solid #000;
     overflow: visible;
