@@ -1,9 +1,12 @@
 const seedPhraseEl = document.getElementById('seed-phrase');
+let currentSeedPhrase = seedPhraseEl.innerText;
 const rowsListMaster = document.getElementsByClassName('row');
+console.log(seedPhraseEl);
 
 // add event listener to the seed phrase, which updates all passwords when modified
-seedPhraseEl.addEventListener('keydown', () => {
-    calculateAllPasswords(rowsList);
+seedPhraseEl.addEventListener('input', (e) => {
+    currentSeedPhrase = e.target.value;
+    calculateAllPasswords(rowsListMaster);
 });
 
 // Add button event listeners to the master seed phrase and all rows
@@ -65,12 +68,9 @@ function calculatePassword(parentRowEl) {
     // );
 
     // 2) get the phrase to be hashed
+    console.log(seedPhraseEl.innerText);
     const phraseToHash =
-        seedPhraseEl.innerText +
-        ' ' +
-        siteNameEl.innerText +
-        ' ' +
-        numberEl.value;
+        currentSeedPhrase + ' ' + siteNameEl.innerText + ' ' + numberEl.value;
 
     // 3) hash the phrase (using keccak256?)
     const hashedValue = keccak256(phraseToHash).toString('base64');
