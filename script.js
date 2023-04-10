@@ -1,8 +1,12 @@
-const seedPhrase = 'seed phrase words';
-// const youtubeEl = document.getElementById('youtube');
-const rowsListEl = document.getElementsByClassName('row');
+const seedPhraseEl = document.getElementById('seed-phrase');
+const rowsListMaster = document.getElementsByClassName('row');
 
-// Add button event listeners to all rows
+// add event listener to the seed phrase, which updates all passwords when modified
+seedPhraseEl.addEventListener('keydown', () => {
+    calculateAllPasswords(rowsList);
+});
+
+// Add button event listeners to the master seed phrase and all rows
 function addEventListeners(rowsList) {
     // start at i=1 so we skip the #labels
     for (let i = 1; i < rowsList.length; i++) {
@@ -62,7 +66,11 @@ function calculatePassword(parentRowEl) {
 
     // 2) get the phrase to be hashed
     const phraseToHash =
-        seedPhrase + ' ' + siteNameEl.innerText + ' ' + numberEl.value;
+        seedPhraseEl.innerText +
+        ' ' +
+        siteNameEl.innerText +
+        ' ' +
+        numberEl.value;
 
     // 3) hash the phrase (using keccak256?)
     const hashedValue = keccak256(phraseToHash).toString('base64');
@@ -72,5 +80,5 @@ function calculatePassword(parentRowEl) {
 }
 
 // I want both of these functions to run at the beginning
-addEventListeners(rowsListEl);
-calculateAllPasswords(rowsListEl);
+addEventListeners(rowsListMaster);
+calculateAllPasswords(rowsListMaster);
