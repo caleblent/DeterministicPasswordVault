@@ -1,86 +1,64 @@
-@import url("https://fonts.googleapis.com/css?family=Muli&display=swap");
-
-* {
-    box-sizing: border-box;
+/* DELETE SOON AS I CAN */
+#spacer {
+    height: 100px;
 }
 
 body {
-    background-color: #3b3b98;
-    color: #fff;
-    font-family: "Muli", sans-serif;
+    overflow-x: scroll;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 6fr 10fr 4fr repeat(6, 1fr);
+    max-width: 1000px;
+    margin: 0 auto;
+    /* justify-content: center; */
+    grid-auto-rows: 80px;
+    grid-template-rows: 50px; /* for the first row, which has labels */
+    grid-row-gap: 20px;
+    grid-column-gap: 10px;
+    /* height: 100vh; */
+}
+
+.flexbox-container {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
+    margin: 0 auto;
+}
+.row {
+    display: grid;
+    grid-template-columns: 6fr 10fr 4fr repeat(6, minmax(0, 1fr));
+    /* margin: 10px auto; */
+    max-width: 1200px;
+    grid-auto-rows: 60px;
+    grid-column-gap: 10px;
+    padding: 0 10px;
     align-items: center;
     justify-content: center;
-    height: 100vh;
-    overflow: hidden;
-    padding: 10px;
-    margin: 0;
-}
-
-h2 {
-    margin: 10px 0 20px;
     text-align: center;
+    min-width: 1100px;
 }
 
-.container {
-    background-color: #23235b;
-    box-shadow: 0px 2px 10px rgba(255, 255, 255, 0.2);
-    padding: 20px;
-    width: 900px;
-    max-width: 100%;
+#labels {
+    background-color: #60e;
+    font-size: 0.8rem;
 }
 
-.result-container {
-    background-color: rgba(0, 0, 0, 0.4);
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    position: relative;
-    font-size: 18px;
-    letter-spacing: 1px;
-    padding: 12px 10px;
-    height: 50px;
-    width: 100%;
+.row .site,
+.row .password,
+.row .number {
+    background-color: #ebd;
+    border: 1px solid #000;
 }
 
-.result-container #result {
-    word-wrap: break-word;
-    max-width: calc(100% - 40px);
-    overflow-y: scroll;
-    height: 100%;
-}
-
-#result::-webkit-scrollbar {
-    width: 1rem;
-}
-
-.result-container .btn {
-    position: absolute;
-    top: 5px;
-    right: 5px;
-    width: 40px;
-    height: 40px;
-    font-size: 20px;
-}
-
-.btn {
-    border: none;
-    background-color: #0c0cce;
-    color: #fff;
-    font-size: 16px;
-    padding: 8px 12px;
-    cursor: pointer;
-}
-
-.btn-large {
-    display: block;
-    width: 100%;
-}
-
-.setting {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 15px 0;
+.row .upper,
+.row .lower,
+.row .nums,
+.row .dollar-sign,
+.row .at-sign,
+.row .exclamation-point {
+    background-color: rgb(67, 235, 179);
+    border: 1px solid #000;
+    overflow: visible;
 }
