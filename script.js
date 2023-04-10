@@ -62,16 +62,13 @@ function calculatePassword(parentRowEl) {
     const phraseToHash =
         seedPhrase + ' ' + siteNameEl.innerText + ' ' + numberEl.value;
 
-    console.log(phraseToHash);
-
     // 3) hash the phrase (using keccak256?)
     const hashedValue = keccak256(phraseToHash).toString('base64');
-
-    console.log(hashedValue);
 
     // 4) set the password to this value
     passwordResultEl.innerText = hashedValue.slice(0, hashedValue.length - 1);
 }
 
+// I want both of these functions to run at the beginning
 addEventListeners(rowsListEl);
 calculateAllPasswords(rowsListEl);

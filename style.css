@@ -1,24 +1,14 @@
-/* DELETE SOON AS I CAN */
-#spacer {
-    height: 100px;
-}
-
 body {
     overflow-x: scroll;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    padding: 10px;
+    margin: 0;
 }
-
-/* .grid-container { */
-/* display: grid;
-    grid-template-columns: 6fr 10fr 4fr repeat(6, 1fr);
-    max-width: 1000px;
-    margin: 0 auto; */
-/* justify-content: center; */
-/* grid-auto-rows: 80px;
-    grid-template-rows: 50px; for the first row, which has labels
-    grid-row-gap: 20px;
-    grid-column-gap: 10px; */
-/* height: 100vh; */
-/* } */
 
 .flexbox-container {
     display: flex;
@@ -64,4 +54,25 @@ body {
     background-color: rgb(67, 235, 179);
     border: 1px solid #000;
     overflow: visible;
+}
+
+.calculate,
+.copy {
+    cursor: pointer;
+}
+.copy:hover {
+    color: #ddd;
+    background-color: #333;
+}
+.copy:active {
+    color: #d63;
+    background-color: #000;
+}
+.calculate:hover {
+    color: #fff;
+    background-color: #68d;
+}
+.calculate:active {
+    color: #4f6;
+    background-color: #60e;
 }
