@@ -8,6 +8,7 @@ body {
     overflow: hidden;
     padding: 10px;
     margin: 0;
+    background-color: #345;
 }
 
 .flexbox-container {
@@ -15,10 +16,12 @@ body {
     flex-direction: column;
     justify-content: space-between;
     margin: 0 auto;
+    padding: 10px;
+    border: 3px solid #283228;
 }
 .row {
     display: grid;
-    grid-template-columns: 1fr 4fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 6fr 1fr 1fr 1fr;
     /* grid-template-columns: 6fr 10fr 4fr repeat(6, 1fr); this will be used if the checkboxes come back*/
     /* margin: 10px auto; */
     max-width: 1200px;
@@ -29,19 +32,22 @@ body {
     justify-content: center;
     text-align: center;
     min-width: 900px;
+    font-size: 1.2rem;
 }
 
 #labels {
-    background-color: #60e;
-    font-size: 0.8rem;
+    background-color: #283228;
 }
 
-.row .site,
-.row .password,
-.row .number,
-.row .copy {
-    background-color: #ebd;
+.row div {
+    background-color: #bbd;
     border: 1px solid #000;
+    padding: 3px;
+}
+
+#labels div {
+    background-color: #99b;
+    user-select: none;
 }
 
 /* .row .upper,
@@ -56,9 +62,23 @@ body {
     overflow: visible;
 }
 
+.site {
+    user-select: none;
+}
+
+.password {
+    user-select: all;
+}
+
+.number input {
+    /* width: 100%; */
+    height: 100%;
+}
+
 .calculate,
 .copy {
     cursor: pointer;
+    user-select: none;
 }
 .copy:hover {
     color: #ddd;
@@ -70,7 +90,7 @@ body {
 }
 .calculate:hover {
     color: #fff;
-    background-color: #68d;
+    background-color: #68f;
 }
 .calculate:active {
     color: #4f6;

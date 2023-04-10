@@ -4,7 +4,8 @@ const rowsListEl = document.getElementsByClassName('row');
 
 // Add button event listeners to all rows
 function addEventListeners(rowsList) {
-    for (let i = 0; i < rowsList.length; i++) {
+    // start at i=1 so we skip the #labels
+    for (let i = 1; i < rowsList.length; i++) {
         addButtonsFunctionality(rowsList[i]);
     }
 }
@@ -33,7 +34,8 @@ function addButtonsFunctionality(row) {
 
 // Calculates all the passwords for each row at the launching of the application
 function calculateAllPasswords(rowsList) {
-    for (let i = 0; i < rowsList.length; i++) {
+    // start at i=1 so we skip the #labels
+    for (let i = 1; i < rowsList.length; i++) {
         calculatePassword(rowsList[i]);
     }
 }
