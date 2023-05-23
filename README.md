@@ -17,7 +17,13 @@ _This project is a **WIP**, updates and screenshots can be seen below._
 
 ## May 23, 2023
 
+Added **Length** column to specify the desired character length of passwords.
+
+![May 23, 2023](img/Screenshot3.png)
+
 Removed **Calculate** button/column. It was redundant because the password is automatically calculated upon launching the application, and passwords are automatically recalculated anytime any value is changed (seed phrase, number, etc.).
+
+![May 23, 2023](img/Screenshot2.png)
 
 ## April 9, 2023
 

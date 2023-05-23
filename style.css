@@ -32,7 +32,7 @@ body {
 }
 .row {
     display: grid;
-    grid-template-columns: 1fr 6fr 1fr 1fr;
+    grid-template-columns: 1fr 6fr 1fr 1fr 1fr;
     /* grid-template-columns: 6fr 10fr 4fr repeat(6, 1fr); this will be used if the checkboxes come back*/
     /* margin: 10px auto; */
     max-width: 1200px;

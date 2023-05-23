@@ -17,15 +17,17 @@ function addEventListeners(rowsList) {
     }
 }
 
-// Add number entry, calculate button, and copy button event listeners to one specific row
+// Add length entry, number entry, and copy button event listeners to one specific row
 function addButtonsFunctionality(row) {
+    // LENGTH --> modifies the number of characters in the password output
+    row.querySelector('.length-entry').addEventListener('click', () => {
+        calculatePassword(row);
+    });
+    // NUMBER --> generates a new "iteration"/password (goes from 0 to 100)
     row.querySelector('.number-entry').addEventListener('click', () => {
         calculatePassword(row);
     });
-    // removing this, as the calculate button has been removed
-    // row.querySelector('.calculate').addEventListener('click', () => {
-    //     calculatePassword(row);
-    // });
+    // COPY button = copies the password string to clipboard
     row.querySelector('.copy').addEventListener('click', () => {
         const textarea = document.createElement('textarea');
         const password = row.querySelector('.password-result').innerText;
@@ -56,6 +58,7 @@ function calculatePassword(parentRowEl) {
 
     const passwordResultEl = parentRowEl.querySelector('.password-result');
 
+    const lengthEl = parentRowEl.querySelector('.length-entry');
     const numberEl = parentRowEl.querySelector('.number-entry');
 
     // As of right now, these are unused. I may find a way to include them in the future
@@ -76,10 +79,16 @@ function calculatePassword(parentRowEl) {
     // 3) hash the phrase (using keccak256?)
     const hashedValue = keccak256(phraseToHash).toString('base64');
 
-    // 4) set the password to this value
-    passwordResultEl.innerText = hashedValue.slice(0, hashedValue.length - 1);
+    // 4) trim this value to the "length" specified by the user
+    // const trimmedValue = hashedValue.slice(0, parseInt(lengthEl.value) - 1);
+
+    // 5) set the password to this value (but trimmed by the LENGTH value)
+    passwordResultEl.innerText = hashedValue.slice(0, parseInt(lengthEl.value));
 }
 
 // I want both of these functions to run at the beginning
 addEventListeners(rowsListMaster);
-calculateAllPasswords(rowsListMaster);
+// this one I'm giving a slight delay just to make it run smoother
+setTimeout(() => {
+    calculateAllPasswords(rowsListMaster);
+}, 20);
