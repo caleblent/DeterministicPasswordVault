@@ -7,10 +7,16 @@ the user remembers there's seed phrase, and that this seed phrase is obscure or 
 
 _This project is a **WIP**, updates and screenshots can be seen below._
 
+## TODOS
+
+1. Remove "Calculate" button/column, as it calculates automatically
+1. Add "Length" column with + and - buttons (default value: 12)
+1. "Add New" button near bottom to add more rows
+
 # Progress
 
 ## April 9, 2023
 
 Completed first draft.
 
-![April 9, 2023](Screenshot1.png)
+![April 9, 2023](img/Screenshot1.png)
