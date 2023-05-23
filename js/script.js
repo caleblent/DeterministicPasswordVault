@@ -22,9 +22,10 @@ function addButtonsFunctionality(row) {
     row.querySelector('.number-entry').addEventListener('click', () => {
         calculatePassword(row);
     });
-    row.querySelector('.calculate').addEventListener('click', () => {
-        calculatePassword(row);
-    });
+    // removing this, as the calculate button has been removed
+    // row.querySelector('.calculate').addEventListener('click', () => {
+    //     calculatePassword(row);
+    // });
     row.querySelector('.copy').addEventListener('click', () => {
         const textarea = document.createElement('textarea');
         const password = row.querySelector('.password-result').innerText;
