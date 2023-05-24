@@ -72,7 +72,6 @@ function calculatePassword(parentRowEl) {
 }
 
 function addRows() {
-    console.log('addRows() initiated');
     // create row
     const row = document.createElement('div');
     // add .row class to it
@@ -87,31 +86,21 @@ function addRows() {
     // add passowrd // add password-result
     const password = document.createElement('div');
     password.classList.add('password');
-    const passwordResult = document.createElement('span');
-    passwordResult.classList.add('password-result');
-    passwordResult.innerText = 'null';
-    // make it disabled
-    password.appendChild(passwordResult);
+    password.innerHTML = '<span class="password-result" disabled>null</span>';
     row.appendChild(password);
 
     // add length
     const length = document.createElement('div');
     length.classList.add('length');
-    const lengthEntry = document.createElement('input');
-    lengthEntry.classList.add('length-entry');
-    lengthEntry.value = 12;
-    // add other attributes
-    length.appendChild(lengthEntry);
+    length.innerHTML =
+        '<input type="number" class="length-entry" min="0" max="64" value="12"/>';
     row.appendChild(length);
 
     // add
     const number = document.createElement('div');
     number.classList.add('number');
-    const numberEntry = document.createElement('input');
-    numberEntry.classList.add('number-entry');
-    numberEntry.value = 0;
-    // add other attributes
-    number.appendChild(numberEntry);
+    number.innerHTML =
+        '<input type="number" class="number-entry" min="0" max="20" value="0"/>';
     row.appendChild(number);
 
     // add copy
@@ -133,8 +122,6 @@ function addRows() {
     addRows();
     // add event listeners to all rows
     addAllEventListeners(container.getElementsByClassName('row'));
-    console.log('all rows: ');
-    console.log(container.getElementsByClassName('row'));
     // calculate all row passwords
     calculateAllPasswords(container.getElementsByClassName('row'));
     // add event listener to the seed phrase, which updates all passwords when modified
