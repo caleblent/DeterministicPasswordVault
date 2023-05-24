@@ -87,11 +87,11 @@ function addRows() {
     // add passowrd // add password-result
     const password = document.createElement('div');
     password.classList.add('password');
-    const password_result = document.createElement('span');
-    password_result.classList.add('password-result');
-    password_result.innerText = 'null';
+    const passwordResult = document.createElement('span');
+    passwordResult.classList.add('password-result');
+    passwordResult.innerText = 'null';
     // make it disabled
-    password.appendChild(password_result);
+    password.appendChild(passwordResult);
     row.appendChild(password);
 
     // add length
@@ -99,6 +99,7 @@ function addRows() {
     length.classList.add('length');
     const lengthEntry = document.createElement('input');
     lengthEntry.classList.add('length-entry');
+    lengthEntry.value = 12;
     // add other attributes
     length.appendChild(lengthEntry);
     row.appendChild(length);
@@ -108,6 +109,7 @@ function addRows() {
     number.classList.add('number');
     const numberEntry = document.createElement('input');
     numberEntry.classList.add('number-entry');
+    numberEntry.value = 0;
     // add other attributes
     number.appendChild(numberEntry);
     row.appendChild(number);
@@ -130,13 +132,15 @@ function addRows() {
     // add rows from data
     addRows();
     // add event listeners to all rows
-    // addAllEventListeners(container.getElementsByClassName('row'));
-    // // calculate all row passwords
-    // calculateAllPasswords(container.getElementsByClassName('row'));
-    // // add event listener to the seed phrase, which updates all passwords when modified
-    // seedPhraseEl.addEventListener('input', (e) => {
-    //     currentSeedPhrase = e.target.value;
-    //     // dynamically grabs all rows, since rows can be added/deleted by user
-    //     calculateAllPasswords(container.getElementsByClassName('row'));
-    // });
+    addAllEventListeners(container.getElementsByClassName('row'));
+    console.log('all rows: ');
+    console.log(container.getElementsByClassName('row'));
+    // calculate all row passwords
+    calculateAllPasswords(container.getElementsByClassName('row'));
+    // add event listener to the seed phrase, which updates all passwords when modified
+    seedPhraseEl.addEventListener('input', (e) => {
+        currentSeedPhrase = e.target.value;
+        // dynamically grabs all rows, since rows can be added/deleted by user
+        calculateAllPasswords(container.getElementsByClassName('row'));
+    });
 })();
