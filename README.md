@@ -3,7 +3,7 @@
 This project is an attempt to be a password vault that can generate deterministically pseudorandom password outputs to different applications a user may have, based off of no outside data or other exterior input.
 
 Because it does this deterministically, no personal data needs to be stored anywhere, so there's no danger of passwords being "leaked" or stolen. All that is required is that
-the user remembers there's seed phrase, and that this seed phrase is obscure or random enough that it is implausible a would-be attacker could figure it out.
+the user remembers their seed phrase, and that this seed phrase is obscure or random enough that it is implausible a would-be attacker could figure it out.
 
 _This project is a **WIP**, updates and screenshots can be seen below._
 
@@ -15,6 +15,12 @@ _This project is a **WIP**, updates and screenshots can be seen below._
 1. Ability to add, edit, and delete rows
 
 # Progress
+
+## May 24, 2023
+
+It now adds rows dynamically based on a "data" list in the JS file.
+
+`const data = ['YouTube', 'Facebook', 'Third', 'Fourth', 'Fifth'];`
 
 ## May 23, 2023
 

@@ -9,7 +9,7 @@ const seedPhraseEl = document.getElementById('seed-phrase');
 let currentSeedPhrase = seedPhraseEl.innerText;
 
 // DATA: list of rows to bring in
-const data = ['YouTube', 'Facebook', 'Instagram', 'LinkedIn'];
+const data = ['YouTube', 'Facebook', 'Third', 'Fourth', 'Fifth'];
 
 // Add button event listeners to the master seed phrase and all rows
 function addAllEventListeners(rowsList) {
