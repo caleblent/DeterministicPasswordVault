@@ -11,8 +11,8 @@ _This project is a **WIP**, updates and screenshots can be seen below._
 
 1. Remove "Calculate" button/column, as it calculates automatically
 1. Add "Length" column with + and - buttons (default value: 12)
-1. "Add New" button near bottom to add more rows
 1. Ability to save and load user configuration settings locally
+1. Ability to add, edit, and delete rows
 
 # Progress
 
