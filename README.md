@@ -12,12 +12,17 @@ _This project is a **WIP**, updates and screenshots can be seen below._
 1. Remove "Calculate" button/column, as it calculates automatically
 1. Add "Length" column with + and - buttons (default value: 12)
 1. "Add New" button near bottom to add more rows
+1. Ability to save and load user configuration settings locally
 
 # Progress
 
 ## May 23, 2023
 
-Added **Length** column to specify the desired character length of passwords.
+Made it prettier/fancier.
+
+![May 23, 2023](img/Screenshot4.png)
+
+Added **Length** column to specify the desired character length of passwords. _By default, this value is set to **12**._
 
 ![May 23, 2023](img/Screenshot3.png)
 

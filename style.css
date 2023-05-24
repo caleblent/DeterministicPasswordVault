@@ -56,6 +56,10 @@ body {
     padding: 10px;
 }
 
+.row .length {
+    padding: 4px;
+}
+
 .row .number {
     padding: 4px;
 }
@@ -71,18 +75,33 @@ body {
 .row .dollar-sign,
 .row .at-sign,
 .row .exclamation-point, */
-.row .calculate {
+.row .site {
     background-color: rgb(67, 235, 179);
     border: 1px solid #000;
     overflow: visible;
 }
 
 .site {
+    cursor: pointer;
     user-select: none;
+}
+.site:hover {
+    color: #fff;
+    background-color: #68f;
+}
+.site:active {
+    color: #4f6;
+    background-color: #60e;
 }
 
 .password {
     user-select: all;
+}
+
+.length input {
+    /* width: 100%; */
+    height: 100%;
+    padding: 7px;
 }
 
 .number input {
@@ -91,7 +110,6 @@ body {
     padding: 7px;
 }
 
-/* .calculate, */
 .copy {
     cursor: pointer;
     user-select: none;
@@ -104,11 +122,3 @@ body {
     color: #d63;
     background-color: #000;
 }
-/* .calculate:hover {
-    color: #fff;
-    background-color: #68f;
-}
-.calculate:active {
-    color: #4f6;
-    background-color: #60e;
-} */
