@@ -8,6 +8,9 @@ const seedPhraseEl = document.getElementById('seed-phrase');
 // const labelsEl = document.getElementById('labels'); might not need this tbh
 let currentSeedPhrase = seedPhraseEl.innerText;
 
+// DATA: list of rows to bring in
+const data = ['YouTube', 'Facebook', 'Instagram', 'LinkedIn'];
+
 // Add button event listeners to the master seed phrase and all rows
 function addAllEventListeners(rowsList) {
     // start at i=1 so we skip the #labels
@@ -71,7 +74,13 @@ function calculatePassword(parentRowEl) {
     passwordResultEl.innerText = hashedValue.slice(0, parseInt(lengthEl.value));
 }
 
-function addRows() {
+function addRows(rowNames) {
+    for (let i = 0; i < rowNames.length; i++) {
+        addRow(rowNames[i]);
+    }
+}
+
+function addRow(rowName) {
     // create row
     const row = document.createElement('div');
     // add .row class to it
@@ -80,7 +89,7 @@ function addRows() {
     // add site
     const site = document.createElement('div');
     site.classList.add('site');
-    site.innerText = 'Example';
+    site.innerText = rowName;
     row.appendChild(site);
 
     // add passowrd // add password-result
@@ -119,7 +128,7 @@ function addRows() {
 // IIFE for running the program
 (() => {
     // add rows from data
-    addRows();
+    addRows(data);
     // add event listeners to all rows
     addAllEventListeners(container.getElementsByClassName('row'));
     // calculate all row passwords
