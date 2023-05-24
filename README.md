@@ -22,6 +22,8 @@ It now adds rows dynamically based on a "data" list in the JS file.
 
 `const data = ['YouTube', 'Facebook', 'Third', 'Fourth', 'Fifth'];`
 
+![May 24, 2023](img/Screenshot5.png)
+
 ## May 23, 2023
 
 Made it prettier/fancier.
