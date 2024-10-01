@@ -9,8 +9,8 @@ _This project is a **WIP**, updates and screenshots can be seen below._
 
 ## TODOS
 
-1. Remove "Calculate" button/column, as it calculates automatically
-1. Add "Length" column with + and - buttons (default value: 12)
+1. ~~Remove "Calculate" button/column, as it calculates automatically~~
+1. ~~Add "Length" column with + and - buttons (default value: 12)~~
 1. Ability to save and load user configuration settings locally
 1. Ability to add, edit, and delete rows
 
@@ -20,8 +20,30 @@ _This project is a **WIP**, updates and screenshots can be seen below._
 
 Adds rows dynamically based on data found in the file "data.txt" which is in the js/ folder and is in JSON format.
 
+```
++------------------------------------------------+
+|                   data.txt:                    |
++------------------------------------------------+
+[
+    {
+        "site": "YouTube",
+        "char_length": "12",
+        "number": 1
+    },
+    {
+        "site": "Facebook",
+        "char_length": "10",
+        "number": 3
+    },
+    {
+        "site": "LinkedIn",
+        "char_length": "14",
+        "number": 4
+    }
+]
+```
+
 ![October 1, 2024](img/Screenshot6a.png)
-![October 1, 2024](img/Screenshot6b.png)
 
 ## May 24, 2023
 
