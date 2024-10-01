@@ -11,6 +11,49 @@ let currentSeedPhrase = seedPhraseEl.innerText;
 // DATA: list of rows to bring in
 const data = ['YouTube', 'Facebook', 'Third', 'Fourth', 'Fifth'];
 
+// attempting to read JSON data
+console.log('heh');
+//
+// function fetchJSONData() {
+//     fetch('js/data.json')
+//         .then((res) => {
+//             if (!res.ok) {
+//                 throw new Error(`HTTP error! Status: ${res.status}`);
+//             }
+//             return res.json();
+//         })
+//         .then((data) => console.log(data))
+//         .catch((error) => console.error('Unable to fetch data:', error));
+// }
+// const json_data = fetchJSONData();
+
+const json_text = `
+[
+    {
+        "site": "YouTube",
+        "length": "12",
+        "number": 1
+    },
+    {
+        "site": "Facebook",
+        "length": "10",
+        "number": 3
+    },
+    {
+        "site": "LinkedIn",
+        "length": "14",
+        "number": 4
+    }
+]
+`;
+const json_data = JSON.parse(json_text);
+console.log(json_data);
+// console.log(json_text);
+
+//
+console.log('gulp');
+// end of JSON data block
+
 // Add button event listeners to the master seed phrase and all rows
 function addAllEventListeners(rowsList) {
     // start at i=1 so we skip the #labels
@@ -74,6 +117,55 @@ function calculatePassword(parentRowEl) {
     passwordResultEl.innerText = hashedValue.slice(0, parseInt(lengthEl.value));
 }
 
+function addRows_JSON(data) {
+    for (let i = 0; i < data.length; i++) {
+        // create row
+        const row = document.createElement('div');
+        // add .row class to it
+        row.classList.add('row');
+
+        // add site
+        const site = document.createElement('div');
+        site.classList.add('site');
+        // get the 'site' value from the JSON data
+        site.innerText = data[i].site;
+        row.appendChild(site);
+
+        // add passowrd // add password-result
+        const password = document.createElement('div');
+        password.classList.add('password');
+        password.innerHTML =
+            '<span class="password-result" disabled>null</span>';
+        row.appendChild(password);
+
+        // add length
+        const length = document.createElement('div');
+        length.classList.add('length');
+        // get the 'length' value from the JSON data
+        length.innerHTML = `<input type="number" class="length-entry" min="0" max="64" value="${data[i].length}"/>`;
+        row.appendChild(length);
+
+        // add
+        const number = document.createElement('div');
+        number.classList.add('number');
+        // get the 'number' value from the JSON data
+        number.innerHTML = `<input type="number" class="number-entry" min="0" max="20" value="${data[i].number}"/>`;
+        row.appendChild(number);
+
+        // add copy
+        const copy = document.createElement('div');
+        copy.classList.add('copy');
+        const clipboard = document.createElement('i');
+        clipboard.classList.add('far');
+        clipboard.classList.add('fa-clipboard');
+        // see if can combine the top 2 lines into 1
+        copy.appendChild(clipboard);
+        row.appendChild(copy);
+
+        container.appendChild(row);
+    }
+}
+
 function addRows(rowNames) {
     for (let i = 0; i < rowNames.length; i++) {
         addRow(rowNames[i]);
@@ -128,7 +220,7 @@ function addRow(rowName) {
 // IIFE for running the program
 (() => {
     // add rows from data
-    addRows(data);
+    addRows_JSON(json_data);
     // add event listeners to all rows
     addAllEventListeners(container.getElementsByClassName('row'));
     // calculate all row passwords
