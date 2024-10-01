@@ -21,9 +21,6 @@ _This project is a **WIP**, updates and screenshots can be seen below._
 Adds rows dynamically based on data found in the file "data.txt" which is in the js/ folder and is in JSON format.
 
 ```
-+------------------------------------------------+
-|                   data.txt:                    |
-+------------------------------------------------+
 [
     {
         "site": "YouTube",
@@ -43,7 +40,7 @@ Adds rows dynamically based on data found in the file "data.txt" which is in the
 ]
 ```
 
-![October 1, 2024](img/Screenshot6a.png)
+![October 1, 2024](img/Screenshot6.png)
 
 ## May 24, 2023
 
