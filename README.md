@@ -16,6 +16,13 @@ _This project is a **WIP**, updates and screenshots can be seen below._
 
 # Progress
 
+## October 1, 2024
+
+Adds rows dynamically based on data found in the file "data.txt" which is in the js/ folder and is in JSON format.
+
+![October 1, 2024](img/Screenshot6a.png)
+![October 1, 2024](img/Screenshot6b.png)
+
 ## May 24, 2023
 
 It now adds rows dynamically based on a "data" list in the JS file.
