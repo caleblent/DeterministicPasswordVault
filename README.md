@@ -18,7 +18,18 @@ _This project is a **WIP**, updates and screenshots can be seen below._
 
 ## October 1, 2024
 
-Adds rows dynamically based on data found in the file "data.txt" which is in the js/ folder and is in JSON format.
+### Part 2
+
+Added an **_Add_** and a **_Delete_** button. Both do exactly as you'd expect.
+
+![October 1, 2024](img/Screenshot7a.png)
+![October 1, 2024](img/Screenshot7b.png)
+![October 1, 2024](img/Screenshot7c.png)
+![October 1, 2024](img/Screenshot7d.png)
+
+### Part 1
+
+Adds rows dynamically based on data found in the file **data.txt** which is in the **js/** folder and is in JSON format.
 
 ```
 [
