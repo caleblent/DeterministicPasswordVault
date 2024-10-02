@@ -32,7 +32,7 @@ body {
 }
 .row {
     display: grid;
-    grid-template-columns: 1fr 6fr 1fr 1fr 1fr;
+    grid-template-columns: 2fr 4fr 1fr 1fr 1fr 1fr;
     /* grid-template-columns: 6fr 10fr 4fr repeat(6, 1fr); this will be used if the checkboxes come back*/
     /* margin: 10px auto; */
     max-width: 1200px;
@@ -64,6 +64,10 @@ body {
     padding: 4px;
 }
 
+.row .add-site {
+    padding: 4px 8px;
+}
+
 #labels div {
     background-color: #99b;
     user-select: none;
@@ -75,21 +79,25 @@ body {
 .row .dollar-sign,
 .row .at-sign,
 .row .exclamation-point, */
-.row .site {
+.row .site,
+.row .add-button {
     background-color: rgb(67, 235, 179);
     border: 1px solid #000;
     overflow: visible;
 }
 
-.site {
+.site,
+.add-button {
     cursor: pointer;
     user-select: none;
 }
-.site:hover {
+.site:hover,
+.add-button:hover {
     color: #fff;
     background-color: #68f;
 }
-.site:active {
+.site:active,
+.add-button:active {
     color: #4f6;
     background-color: #60e;
 }
@@ -110,7 +118,14 @@ body {
     padding: 7px;
 }
 
-.copy {
+.add-site input {
+    /* width: 100%; */
+    height: 100%;
+    padding: 7px;
+}
+
+.copy,
+.delete {
     cursor: pointer;
     user-select: none;
 }
@@ -120,5 +135,13 @@ body {
 }
 .copy:active {
     color: #d63;
+    background-color: #000;
+}
+.delete:hover {
+    color: #fff;
+    background-color: #f14;
+}
+.delete:active {
+    color: #f14;
     background-color: #000;
 }

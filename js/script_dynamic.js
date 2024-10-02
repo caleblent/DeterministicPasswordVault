@@ -83,16 +83,10 @@ function addRows(data) {
         row.appendChild(number);
 
         // add copy button
-        const copy = document.createElement('div');
-        copy.classList.add('copy');
-        const clipboard = document.createElement('i');
-        clipboard.classList.add('far');
-        clipboard.classList.add('fa-clipboard');
-        // add the elements to the row
-        copy.appendChild(clipboard);
-        row.appendChild(copy);
+        const copyButton = document.createElement('div');
+        copyButton.classList.add('copy');
         // event listener that copies the password to clipboard when clicked
-        copy.addEventListener('click', () => {
+        copyButton.addEventListener('click', () => {
             const textarea = document.createElement('textarea');
             const password = row.querySelector('.password-result').innerText;
             if (!password) {
@@ -104,6 +98,28 @@ function addRows(data) {
             document.execCommand('copy');
             textarea.remove();
         });
+        // add clipboard icon
+        const clipboard = document.createElement('i');
+        clipboard.classList.add('far');
+        clipboard.classList.add('fa-clipboard');
+        copyButton.appendChild(clipboard);
+        // add the element to the row
+        row.appendChild(copyButton);
+
+        // add delete button
+        const deleteButton = document.createElement('div');
+        deleteButton.classList.add('delete');
+        // add event listener that deletes row when clicked
+        deleteButton.addEventListener('click', () => {
+            row.remove();
+        });
+        // add trash can icon
+        const trashCan = document.createElement('i');
+        trashCan.classList.add('fa-solid');
+        trashCan.classList.add('fa-trash-can');
+        deleteButton.appendChild(trashCan);
+        // add delete element to row
+        row.appendChild(deleteButton);
 
         // add this now completed row to the table
         container.appendChild(row);
