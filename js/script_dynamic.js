@@ -4,9 +4,10 @@
 
 // needed variables that won't get deleted
 const container = document.querySelector('.flexbox-container');
-const rowsContainer = container.querySelector('.rows');
+const rowsContainer = document.getElementById('rows');
 const seedPhraseEl = document.getElementById('seed-phrase');
 const addRowEl = document.getElementById('add-row');
+const saveButton = document.getElementById('save-button');
 // const labelsEl = document.getElementById('labels'); might not need this tbh
 let currentSeedPhrase = seedPhraseEl.innerText;
 
@@ -180,15 +181,24 @@ async function getData(data_file) {
 (() => {
     // reads data from .txt file, puts it into a data object, then uses that data object to add content to web page
     getData('js/data.txt');
+
     // add event listener to the seed phrase, which updates all passwords when modified
     seedPhraseEl.addEventListener('input', (e) => {
         currentSeedPhrase = e.target.value;
         // dynamically grabs all rows, since rows can be added/deleted by user
         calculateAllPasswords(rowsContainer.getElementsByClassName('row'));
     });
+
     // wait 100ms, then calculate all row passwords
     setTimeout(() => {
         calculateAllPasswords(rowsContainer.getElementsByClassName('row'));
         addAddRow();
     }, 100);
+
+    // add event listener to save button
+    saveButton.addEventListener('click', () => {
+        const rows = rowsContainer.querySelectorAll('.row');
+        console.log(rows);
+        console.log(JSON.stringify(rows));
+    });
 })();
