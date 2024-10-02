@@ -64,7 +64,7 @@ body {
     padding: 4px;
 }
 
-.row .add-site {
+#add-row .site {
     padding: 4px 8px;
 }
 
@@ -118,10 +118,10 @@ body {
     padding: 7px;
 }
 
-.add-site input {
+.site input {
     /* width: 100%; */
     height: 100%;
-    padding: 7px;
+    padding: 7px 0;
 }
 
 .copy,
